@@ -27,7 +27,6 @@ class PagesController<ApplicationController
       @total_visiteurs = Visiteur.count
       @total_achats = Achat.count
       @total_visiteurs_avec_achats = Visiteur.joins(:achats).distinct.count
-      @taux_conversion=@total_visiteurs_avec_achats/@total_visiteurs
     end
 
     def achatproduit

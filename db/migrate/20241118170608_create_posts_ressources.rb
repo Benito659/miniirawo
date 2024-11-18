@@ -1,6 +1,6 @@
 class CreatePostsRessources < ActiveRecord::Migration[8.0]
   def change
-    create_table :posts_ressources do |t|
+    create_table :ressources do |t|
       t.string :titre
       t.text :description
       t.integer :prix
