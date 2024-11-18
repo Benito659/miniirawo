@@ -1,28 +1,92 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title><%= content_for(:title) || "Miniirawo" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <%= yield :head %>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: radial-gradient(circle at top, #ffffff, #e6e6e6, #cccccc);
+        color: black;
+        text-align: center;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        overflow-y: auto; 
+      }
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+      .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 450px;
+        padding: 10px 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 45px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        margin-top: 20px;
+        font-weight: bold;
+      }
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+      .logo-img {
+        width: 120px;
+        height: auto;
+        display: block;
+      }
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        font-size: 16px;
+      }
+
+      .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        font-weight: 700;
+      }
+
+      .nav-links a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #ffda79;
+      }
+
+      .cta-login {
+        padding: 10px 20px;
+        background: linear-gradient(90deg, #ffda79, #ffe57a);
+        color: #3b0066;
+        font-weight: bold;
+        border-radius: 80px;
+        text-decoration: none;
+        box-shadow: 0 3px 10px rgba(255, 223, 138, 0.5);
+        transition: all 0.3s ease;
+      }
+    </style>
   </head>
 
   <body>
+    <div class="header">
+      <img src="irawo-logo.png" alt="Irawo Logo" class="logo-img">
+      <div class="nav-links">
+        <a href="#">Ressources</a>
+        <a href="#" class="cta-login">Votre Espace</a>
+      </div>
+   </div>
     <%= yield %>
   </body>
 </html>
