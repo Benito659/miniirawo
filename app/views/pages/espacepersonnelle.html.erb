@@ -2,28 +2,20 @@
 <div class="container">
   <div class="filters-products-container">
     <section class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Produit 1">
-        <h3>Formation JavaScript</h3>
-        <p>Apprenez les bases de JavaScript et créez vos projets web.</p>
-        <p><strong>Prix : 100€</strong></p>
-        <button>Acheter</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Produit 1">
-        <h3>Formation JavaScript</h3>
-        <p>Apprenez les bases de JavaScript et créez vos projets web.</p>
-        <p><strong>Prix : 100€</strong></p>
-        <button>Acheter</button>
-      </div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/150" alt="Produit 1">
-        <h3>Formation JavaScript</h3>
-        <p>Apprenez les bases de JavaScript et créez vos projets web.</p>
-        <p><strong>Prix : 100€</strong></p>
-        <button>Acheter</button>
-      </div>
-    </div>
+    
+    <% if @ressources_achetees.any? %>
+      <% @ressources_achetees.each do |ressource| %>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/150" alt="Produit 1">
+          <h3> <%= ressource.titre %> </h3>
+          <p><%= ressource.description %></p>
+          <p><strong>Prix : <%= number_to_currency(ressource.prix) %></strong></p>
+          <button><a href="<%= product_path(id: ressource.id) %>">Voir Produit</a></button>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Aucune ressource achetée.</p>
+    <% end %>
     </section>
   </div>
 </div>

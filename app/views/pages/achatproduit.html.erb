@@ -32,12 +32,12 @@
 <section class="products">
   <% @ressources.each do |ressource| %>
     <div class="product-card">
-      <%= link_to image_tag(ressource.lienImage, alt: "Produit") %>
+      <img src="https://via.placeholder.com/150" alt="Produit 1">
       <h3> <%= ressource.titre %> </h3>
       <p><%= ressource.description %></p>
       <p><strong>Prix : <%= number_to_currency(ressource.prix) %></strong></p>
-      <button><a href="<%= product_path(id: ressource.id) %>">Voir Produit</a></button>
-      <button><a href="<%= achatproduit_path(id: ressource.id) %>">Acheter</a></button>
+      <button><a href="<%= product_path %>">Voir Produit</a></button>
+      <button><a href="<%= achatproduit_path(id: ressource.id) %>">Aceter</a></button>
     </div>
   <% end %>
 </section>

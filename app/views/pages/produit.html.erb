@@ -1,14 +1,13 @@
 <h1>Page Produit</h1>
 
 <div class="product-presentation">
-  <img src="https://via.placeholder.com/900x400" alt="Formation JavaScript">
-  <h2>Formation JavaScript</h2>
+    <%= link_to image_tag(@ressource.lienImage, alt: "Formation JavaScript") %>
   <p>
-    Découvrez notre formation complète pour maîtriser JavaScript, le langage essentiel du web. Que vous soyez débutant 
-    ou que vous souhaitiez perfectionner vos compétences, ce programme couvre tout, des bases aux techniques avancées.
+    <%= @ressource.description %>
   </p>
-  <p class="price">Prix : 100€</p>
-  <button>Acheter Maintenant</button>
+  <p class="price">Prix :<%= number_to_currency(@ressource.prix) %></p>
+  <p>lien Access fichier:<%= number_to_currency(@ressource.prix) %></p>
 </div>
 
 <%= stylesheet_link_tag "produit", media: "all" %>
+      

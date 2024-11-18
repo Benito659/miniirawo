@@ -83,8 +83,8 @@
     <div class="header">
     <%= link_to image_tag("irawo-logo.png", alt: "Irawo Logo",class:"logo-img") %>
       <div class="nav-links">
-        <a href="#">Ressources</a>
-        <a href="#" class="cta-login">Votre Espace</a>
+        <a href="<%= home_path %>">Ressources</a>
+        <a href="<%= espace_path %>" class="cta-login">Votre Espace</a>
       </div>
    </div>
     <%= yield %>
