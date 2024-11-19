@@ -1,0 +1,13 @@
+<h1><%= @ressource.titre %></h1>
+
+<div class="product-presentation">
+    <%= link_to image_tag(@ressource.lienImage, alt: "Formation JavaScript") %>
+  <p>
+    <%= @ressource.description %>
+  </p>
+  <p class="price">Prix :<%= number_to_currency(@ressource.prix) %></p>
+  <p>lien Access fichier:<%= number_to_currency(@ressource.prix) %></p>
+</div>
+
+<%= stylesheet_link_tag "produit", media: "all" %>
+      

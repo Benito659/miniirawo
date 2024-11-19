@@ -1,0 +1,55 @@
+<div class="filters-products-container">
+<div class="filters">
+  <h3>Filtres</h3>
+  <label>
+    <input type="checkbox" name="category" value="formation"> Formations
+  </label>
+  <label>
+    <input type="checkbox" name="category" value="ebook"> eBooks
+  </label>
+  <label>
+    <input type="checkbox" name="category" value="coaching"> Coaching
+  </label>
+  <h3 class="left-space-filter">Intervalle de prix</h3>
+  <label>
+    <input type="checkbox" name="price" value="0-50"> 0€ - 50€
+  </label>
+  <label>
+    <input type="checkbox" name="price" value="51-100"> 51€ - 100€
+  </label>
+  <label>
+    <input type="checkbox" name="price" value="101-200"> 101€ - 200€
+  </label>
+  <label>
+    <input type="checkbox" name="price" value="201-500"> 201€ - 500€
+  </label>
+  <label>
+    <input type="checkbox" name="price" value="500+"> 500€ et plus
+  </label>
+</div>
+
+
+<section class="products">
+  <% @ressources.each do |ressource| %>
+    <div class="product-card">
+      <%= link_to image_tag(ressource.lienImage, alt: "Produit") %>
+      <h3> <%= ressource.titre %> </h3>
+      <p><%= ressource.description %></p>
+      <p><strong>Prix : <%= number_to_currency(ressource.prix) %></strong></p>
+      <button><a href="<%= product_path %>">Voir Produit</a></button>
+      <button><a href="<%= achatproduit_path(id: ressource.id) %>">Acheter</a></button>
+    </div>
+  <% end %>
+</section>
+</div>
+
+<div class="footer">
+Plus de 100000 élèves nous on fait confiance
+<div class="trusted-avatars">
+    <%= link_to image_tag("pp-photo-1.jpg", alt: "Creator 1") %>
+    <%= link_to image_tag("pp-photo-2.jpg", alt: "Creator 2") %>
+    <%= link_to image_tag("pp-photo-3.jpg", alt: "Creator 3") %>
+</div>
+</div>
+
+<%= stylesheet_link_tag "home", media: "all" %>

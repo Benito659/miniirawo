@@ -1,0 +1,102 @@
+<div class="filters-products-container">
+  <div class="filters">
+    <h3>Filtres</h3>
+    <label>
+      <input type="checkbox" name="category" value="finance"> Finance
+    </label>
+    <label>
+      <input type="checkbox" name="category" value="marketin"> Marketin
+    </label>
+    <label>
+      <input type="checkbox" name="category" value="education"> Education
+    </label>
+    <h3 class="left-space-filter">Intervalle de prix</h3>
+    <label>
+      <input type="checkbox" name="price" value="0-50"> 0€ - 50€
+    </label>
+    <label>
+      <input type="checkbox" name="price" value="51-100"> 51€ - 100€
+    </label>
+    <label>
+      <input type="checkbox" name="price" value="101-200"> 101€ - 200€
+    </label>
+    <label>
+      <input type="checkbox" name="price" value="201-500"> 201€ - 500€
+    </label>
+    <label>
+      <input type="checkbox" name="price" value="500+"> 500€ et plus
+    </label>
+  </div>
+
+  <section class="products">
+    <% @ressources.each do |ressource| %>
+      <div class="product-card">
+        <%= link_to image_tag(ressource.lienImage, alt: "Produit") %>
+        <h3> <%= ressource.titre %> </h3>
+        <p class="prix" data-price="<%= ressource.prix %>">
+          <strong>Prix : <%= number_to_currency(ressource.prix) %></strong>
+        </p>
+        <p class="category" data-category="<%= ressource.categorie %>">
+          Category : <%= ressource.categorie %>
+        </p>
+        <button><a href="<%= product_path(id: ressource.id) %>">Voir Produit</a></button>
+        <%= form_with url: achatproduit_path(id: ressource.id), method: :post, class: "inline-form" do %>
+          <button type="submit">Acheter</button>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>
+
+<div class="footer">
+  Plus de 100000 élèves nous ont fait confiance
+  <div class="trusted-avatars">
+      <%= link_to image_tag("pp-photo-1.jpg", alt: "Creator 1") %>
+      <%= link_to image_tag("pp-photo-2.jpg", alt: "Creator 2") %>
+      <%= link_to image_tag("pp-photo-3.jpg", alt: "Creator 3") %>
+  </div>
+</div>
+
+<%= stylesheet_link_tag "home", media: "all" %>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const categoryFilters = document.querySelectorAll("input[name='category']");
+    const priceFilters = document.querySelectorAll("input[name='price']");
+    const productCards = document.querySelectorAll(".product-card");
+
+    const filterProducts = () => {
+      const activeCategories = Array.from(categoryFilters)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value.toLowerCase()); // On met les valeurs en minuscule
+
+      const activePrices = Array.from(priceFilters)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value);
+
+      productCards.forEach((card) => {
+        const category = card.querySelector(".category").dataset.category.toLowerCase(); // Mettre en minuscule
+        const price = parseFloat(card.querySelector(".prix").dataset.price);
+
+        const matchesCategory =
+          activeCategories.length === 0 || activeCategories.includes(category);
+        const matchesPrice =
+          activePrices.length === 0 ||
+          activePrices.some((range) => {
+            if (range === "500+") return price > 500;
+            const [min, max] = range.split("-").map(Number);
+            return price >= min && price <= max;
+          });
+          
+        card.style.display = matchesCategory && matchesPrice ? "block" : "none";
+      });
+    };
+    categoryFilters.forEach((checkbox) =>
+      checkbox.addEventListener("change", filterProducts)
+    );
+    priceFilters.forEach((checkbox) =>
+      checkbox.addEventListener("change", filterProducts)
+    );
+
+    console.log("Produits chargés :", productCards);
+  });
+</script>
