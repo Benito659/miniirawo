@@ -10,6 +10,7 @@
           <h3> <%= ressource.titre %> </h3>
           <p><%= ressource.description %></p>
           <p><strong>Prix : <%= number_to_currency(ressource.prix) %></strong></p>
+          <p><strong>Vous pouvez telecharger la resource ici : <%= ressource.lien%></strong></p>
           <button><a href="<%= product_path(id: ressource.id) %>">Voir Produit</a></button>
         </div>
       <% end %>

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 
   get "/espacepersonnelle", to: "pages#espacepersonnelle", as: "espace"
 
-  get "/achatproduit/:id", to: "pages#achatproduit", as: "achatproduit"
+  post "/achatproduit/:id", to: "pages#achatproduit", as: "achatproduit"
+  
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
