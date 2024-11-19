@@ -37,7 +37,7 @@
       <p><%= ressource.description %></p>
       <p><strong>Prix : <%= number_to_currency(ressource.prix) %></strong></p>
       <button><a href="<%= product_path %>">Voir Produit</a></button>
-      <button><a href="<%= achatproduit_path(id: ressource.id) %>">Aceter</a></button>
+      <button><a href="<%= achatproduit_path(id: ressource.id) %>">Acheter</a></button>
     </div>
   <% end %>
 </section>
