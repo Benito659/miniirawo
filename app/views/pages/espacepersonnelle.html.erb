@@ -6,7 +6,7 @@
     <% if @ressources_achetees.any? %>
       <% @ressources_achetees.each do |ressource| %>
         <div class="product-card">
-          <img src="https://via.placeholder.com/150" alt="Produit 1">
+          <%= link_to image_tag(ressource.lienImage, alt: "Produit") %>
           <h3> <%= ressource.titre %> </h3>
           <p><%= ressource.description %></p>
           <p><strong>Prix : <%= number_to_currency(ressource.prix) %></strong></p>
