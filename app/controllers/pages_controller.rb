@@ -1,6 +1,6 @@
 class PagesController<ApplicationController
-  before_action :set_visitor_id, :measure_backend_performance
-  
+  before_action :set_visitor_id, :measure_backend_performance , :start_db_tracking
+  after_action :log_backend_duration, :stop_db_tracking
   def home 
     @ressources = Ressource.all
 
@@ -39,6 +39,8 @@ class PagesController<ApplicationController
   def admin
     @total_visiteurs = Visiteur.count
     @total_achats = Achat.count
+    @backend_duration = flash[:backend_duration]
+    @bdd_duration = flash[:total_duration]
   end
 
   def achatproduit
@@ -88,13 +90,25 @@ class PagesController<ApplicationController
   end
   
   def measure_backend_performance
-    @start_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+    @start_time = Time.now
   end
 
-  def append_info_to_payload(payload)
-    super
-    end_time = Process.clock_gettime(Process::CLOCK_MONOTONIC)
-    payload[:backend_duration] = (end_time - @start_time) * 1000 # en millisecondes
+  def log_backend_duration
+    end_time = Time.now
+    @backend_duration = (end_time - @start_time) * 1000 # En millisecondes
+    flash[:backend_duration] = @backend_duration
+    Rails.logger.info "Durée du backend pour l'action #{action_name}: #{@backend_duration} ms"
   end
 
+end
+
+def start_db_tracking
+  DbPerformanceTracker.setup
+end
+
+def stop_db_tracking
+  @total_duration = DbPerformanceTracker.total_duration
+  Rails.logger.info "Durée du bdd pour l'action #{action_name}: #{@total_duration} ms"
+  flash[:total_duration] = @total_duration
+  DbPerformanceTracker.reset
 end

@@ -12,27 +12,22 @@
   </div>
 </section>
 
+<h1>Performances</h1>
+<section class="kpi">
+  <div class="kpi-card">
+    <h3> <%= @backend_duration %> ms </h3>
+    <p>Backend performance</p>
+  </div>
+  <div class="kpi-card">
+  <h3 id="front-end-time"> </h3>
+  <p>Frontend performance</p>
+  </div>
+  <div class="kpi-card">
+  <h3> <%= @bdd_duration %> ms</h3>
+  <p>BDD performance</p>
+</div>
+</section>
 
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const timing = performance.timing;
-    const frontEndTime = timing.domContentLoadedEventEnd - timing.responseEnd;
-    const backendTime = timing.responseEnd - timing.requestStart;
-    console.log("Front-End Time:", frontEndTime);
-    console.log("Back-End Time:", backendTime);
-
-    
-    fetch("/performance_metrics", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        front_end_time: frontEndTime,
-        backend_time: backendTime,
-      })
-    });
-  });
-</script>
 
 <%= stylesheet_link_tag "admin", media: "all" %>
