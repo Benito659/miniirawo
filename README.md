@@ -5,17 +5,16 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 8.0.0
 
-* System dependencies
+* Fonctionnalitées
 
-* Configuration
+* Optimisation
+  
+* CiCd:
 
-* Database creation
+* ngrock to test : https://yearly-workable-ewe.ngrok-free.app/
 
-* Database initialization
-
-* How to run the test suite
 
 * Services (job queues, cache servers, search engines, etc.)
 
