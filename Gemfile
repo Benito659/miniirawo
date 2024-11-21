@@ -61,3 +61,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "webpacker", "~> 5.4"
+
+gem "actionpack-action_caching"
+
+gem "htmlcompressor"
+
+gem "sassc-rails"
