@@ -1,6 +1,9 @@
+
 class PagesController<ApplicationController
   before_action :set_visitor_id, :measure_backend_performance , :start_db_tracking
   after_action :log_backend_duration, :stop_db_tracking
+  caches_action :home, :produit, :espacepersonnelle,:achatproduit ,expires_in: 5.minutes
+  
   def home 
     @ressources = Ressource.all
 
@@ -15,11 +18,13 @@ class PagesController<ApplicationController
     end
     ressource_ids_achetees = achats.pluck(:produit_id)
     @ressources = Ressource.where.not(id: ressource_ids_achetees )
+    expires_in 1.hour, public: true
   end
 
   def produit
       @ressource_id = params[:id]
       @ressource = Ressource.find_by(id: @ressource_id)
+      expires_in 1.hour, public: true
   end
 
   def espacepersonnelle
@@ -34,6 +39,7 @@ class PagesController<ApplicationController
     else
       @ressources_achetees = []
     end
+    expires_in 1.hour, public: true
   end
 
   def admin
@@ -41,6 +47,7 @@ class PagesController<ApplicationController
     @total_achats = Achat.count
     @backend_duration = flash[:backend_duration]
     @bdd_duration = flash[:total_duration]
+    expires_in 1.hour, public: true
   end
 
   def achatproduit
@@ -76,7 +83,7 @@ class PagesController<ApplicationController
     ressource_ids_achetees = achats.pluck(:produit_id)
     @ressources = Ressource.where.not(id: ressource_ids_achetees)
     flash[:success] = "Achat enregistré avec succès"
-
+    expires_in 1.hour, public: true
     
   end
 
