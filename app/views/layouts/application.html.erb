@@ -90,3 +90,24 @@
     <%= yield %>
   </body>
 </html>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const timing = performance.timing;
+
+  const frontEndTime = timing.responseEnd - timing.navigationStart;
+
+  console.log("Front-End Time:", frontEndTime);
+
+  const frontEndElement = document.getElementById("front-end-time");
+
+  if (frontEndElement) {
+    frontEndElement.textContent = `${frontEndTime} ms`;
+  } else {
+    console.error("L'élément avec l'ID 'front-end-time' est manquant.");
+  }
+
+  });
+
+</script>

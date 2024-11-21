@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_18_170608) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_21_112811) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -19,6 +19,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_18_170608) do
     t.integer "produit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["produit_id"], name: "index_achats_on_produit_id"
   end
 
   create_table "ressources", force: :cascade do |t|
@@ -37,5 +38,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_18_170608) do
     t.string "visiteur_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["visiteur_id"], name: "index_visiteurs_on_visiteur_id"
   end
 end

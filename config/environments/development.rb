@@ -2,6 +2,12 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.middleware.use HtmlCompressor::Rack, {
+    remove_comments: true,
+    remove_multi_spaces: true,
+    compress_css: true,
+    compress_javascript: true
+  }
 
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
