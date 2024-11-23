@@ -7,22 +7,41 @@ du projet minnirawo avec ses poctionnalitées et optimisations
 
 ## Fonctionnalitées
 ### * Pages de Ressource 
+explication fonctionalitées
+images
 ### * Page du Produit
+explication fonctionalitées
+images
 ### * Page Espace personnel
+explication fonctionalitées
+images
 ### * Page Admin
+explication fonctionalitées
+images
 
 
 
 ## Optimisations des performances :
 
-### * Optimisation frontrend
-### * Optimisation Backend
-### * Optimisation Bdd
+### - Optimisation frontrend
+Image optimisation
+Assets optimisation
+### - Optimisation Backend
+cache action
+
+cache request
+
+### - Optimisation Bdd
+Index Creation
+
+Résultats obtenus :
+images
   
 ## Ci avec Github action:
-### * Differentes branches
-### * Automatisation des Tests
-
+### - Differentes branches
+Roles de chaques branches
+### - Automatisation des Tests
+Automatisation des tests Pull requests Github
 
 
 
