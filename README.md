@@ -6,17 +6,26 @@ du projet minnirawo avec ses poctionnalitées et optimisations
 * Ruby version 8.0.0
 
 ### Fonctionnalitées
+## * Pages de Ressource 
+## * Page du Produit
+## * Page Admin
 
 
-* Optimisation
+
+### Optimisations des performances :
+
+## * Optimisation frontrend
+## * Optimisation Backend
+## * Optimisation Bdd
   
-* CiCd:
+### Ci avec Github action:
+## * Differentes branches
+## * Automatisation des Tests
 
-* ngrock to test : https://yearly-workable-ewe.ngrok-free.app/
 
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### Lien ngrock pour  tester l'application : https://yearly-workable-ewe.ngrok-free.app/
 
-* ...
+
+
