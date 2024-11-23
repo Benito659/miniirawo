@@ -5,22 +5,22 @@ du projet minnirawo avec ses poctionnalitées et optimisations
 
 * Ruby version 8.0.0
 
-### Fonctionnalitées
-## * Pages de Ressource 
-## * Page du Produit
-## * Page Admin
+## Fonctionnalitées
+### * Pages de Ressource 
+### * Page du Produit
+### * Page Admin
 
 
 
-### Optimisations des performances :
+## Optimisations des performances :
 
-## * Optimisation frontrend
-## * Optimisation Backend
-## * Optimisation Bdd
+### * Optimisation frontrend
+### * Optimisation Backend
+### * Optimisation Bdd
   
-### Ci avec Github action:
-## * Differentes branches
-## * Automatisation des Tests
+## Ci avec Github action:
+### * Differentes branches
+### * Automatisation des Tests
 
 
 
