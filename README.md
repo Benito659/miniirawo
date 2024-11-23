@@ -1,13 +1,12 @@
-# README
+# Miniirawo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Ce projet documente les différentes étapes de la réalisation
+du projet minnirawo avec ses poctionnalitées et optimisations
 
 * Ruby version 8.0.0
 
-* Fonctionnalitées
+### Fonctionnalitées
+
 
 * Optimisation
   
