@@ -8,6 +8,7 @@ du projet minnirawo avec ses poctionnalitées et optimisations
 ## Fonctionnalitées
 ### * Pages de Ressource 
 ### * Page du Produit
+### * Page Espace personnel
 ### * Page Admin
 
 
